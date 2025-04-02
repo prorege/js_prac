@@ -112,15 +112,21 @@
     font-size: 0.9rem;
     cursor: pointer;
     transition: background-color 0.2s ease;
-  }
-  
-  li button:hover {
-    background-color: darkred;
-  }
-  
-  /* 체크박스 */
-  li input[type="checkbox"] {
+}
+#changeBtn{
+  background-color: rgb(250, 199, 58);
+}
+#changeBtn:hover{
+  background-color: rgb(156, 156, 7);
+}
+
+li button:hover {
+  background-color: darkred;
+}
+
+  /*     체크박스 */
+li input[type="checkbox"] {
     transform: scale(1.2);
     cursor: pointer;
-  }
+}
   
