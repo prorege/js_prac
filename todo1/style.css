@@ -1,60 +1,126 @@
-/* style/base.css */
+/* Reset & Base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    line-height: 1.6;
-    font-family: sans-serif;
-    background-color: #f9f9f9;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
     color: #333;
-}
-
-input, button, textarea {
-    font: inherit;
-}
-
-button {
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-}
-
-ul, ol {
-    list-style: none;
-}
-
-.container {
-    max-width: 800px;
+    padding: 40px 20px;
+  }
+  
+  /* Layout Container */
+  .container {
+    max-width: 500px;
     margin: 0 auto;
-    padding: 20px;
-}
-
-:focus {
-    outline: 2px solid #007BFF;
-    outline-offset: 2px;
-}
-
-h1{
-    margin-left: 40%;;
-}
-p{
-    margin: 3%;
-}
-input{
-    margin: 3%;
+    padding: 30px 25px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title */
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+    color: #666;
+  }
+  
+  /* Form */
+  form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"] {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Todo List */
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    background-color: #fefefe;
+    margin-bottom: 12px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.2s ease;
+  }
+  
+  li:hover {
+    background-color: #f0f8ff;
+  }
+  
+  li span {
+    flex-grow: 1;
+    word-break: break-all;
+  }
+  
+  /* 줄 긋기 효과 */
+  .done {
+    text-decoration: line-through;
+    color: #999;
+    transition: all 0.2s ease;
+  }
+  
+  /* 삭제 버튼 */
+  li button {
+    padding: 5px 10px;
+    background-color: crimson;
+    color: white;
+    border: none;
     border-radius: 5px;
-    padding: 5px;
-    box-shadow: #333 1px 3px 3px 1px;
-    text-align: left;
-}
-
-button{
-    border: 1px black solid;
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: #333 1px 3px 3px 1px;
-    background-color: seashell;
-}
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  li button:hover {
+    background-color: darkred;
+  }
+  
+  /* 체크박스 */
+  li input[type="checkbox"] {
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+  
