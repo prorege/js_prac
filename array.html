@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>숫자 리스트</title>
+</head>
+<body>
+  <input type="number" id="numInput">
+  <button id="btn">추가</button>
+  <ul id="listDisplay"></ul>
+
+    <script>
+        const btn = document.getElementById("btn");
+        const display = document.getElementById("listDisplay");
+        const array = [];
+
+    btn.addEventListener("click", function() {
+        const input = document.getElementById("numInput");
+        const inputNum = Number(input.value);
+
+
+        array.push(inputNum);
+
+        let displayList = '';
+        array.forEach(function(num) {
+            displayList += `<li>${num}</li>`;
+        });
+        input.value = '';
+        display.innerHTML = displayList;
+        });
+    </script>
+</body>
+</html>
