@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" name="num" id="num">
+    <button onclick="double()">button</button>
+    <span id="display"></span>
+</body>
+<script>
+    function double(){
+        const input_value = document.getElementById("num").value;
+        const input_num = Number(input_value);
+        const double_num = 2 * input_num;
+        const display_double = document.getElementById("display");
+        display_double.innerText = double_num;
+    }
+</script>
+</html>
