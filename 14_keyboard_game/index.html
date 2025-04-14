@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>기능 14 - 키보드 이동</title>
+  <style>
+    #box {
+      width: 50px;
+      height: 50px;
+      background-color: royalblue;
+      position: absolute;
+      left: 100px;
+      top: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>🕹️ 방향키로 박스를 움직여보세요!</h3>
+  <div id="box"></div>
+
+  <script>
+    const box = document.getElementById("box");
+    const step = 10; // 한 번에 움직일 거리(px)
+
+    document.addEventListener("keydown", (e) => {
+      const left = parseInt(box.style.left) || 0;
+      const top = parseInt(box.style.top) || 0;
+
+      if (e.key === "ArrowRight") {
+        box.style.left = (left + step) + "px";
+      } else if (e.key === "ArrowLeft") {
+        box.style.left = (left - step) + "px";
+      } else if (e.key === "ArrowDown") {
+        box.style.top = (top + step) + "px";
+      } else if (e.key === "ArrowUp") {
+        box.style.top = (top - step) + "px";
+      }
+    });
+  </script>
+
+</body>
+</html>

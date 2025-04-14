@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>기능 13 - 슬라이드 배너</title>
+  <style>
+    #banner {
+      width: 400px;
+      height: 250px;
+      object-fit: cover;
+      border: 2px solid #ccc;
+    }
+    .controls {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>🎞️ 슬라이드 배너</h3>
+  <img id="banner" src="https://picsum.photos/id/1018/400/250" alt="배너 이미지" />
+
+  <div class="controls">
+    <button id="prevBtn">이전</button>
+    <button id="nextBtn">다음</button>
+  </div>
+
+  <script>
+    const banner = document.getElementById("banner");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    const images = [
+      "https://picsum.photos/id/1018/400/250",
+      "https://picsum.photos/id/1025/400/250",
+      "https://picsum.photos/id/1035/400/250",
+      "https://picsum.photos/id/1040/400/250"
+    ];
+    let currentIndex = 0;
+
+    function showImage(index) {
+      banner.src = images[index];
+    }
+
+    function showNextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+
+    function showPrevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    }
+
+    nextBtn.addEventListener("click", showNextImage);
+    prevBtn.addEventListener("click", showPrevImage);
+
+    // 자동 슬라이드 (3초마다)
+    setInterval(showNextImage, 3000);
+  </script>
+
+</body>
+</html>
