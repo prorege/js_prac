@@ -1,7 +1,6 @@
-const input1 = document.getElementById("input1");
-const input2 = document.getElementById("input2");
-const btn = document.getElementById("btn");
-const result = document.getElementById("result");
+const todos = document.getElementById("todoInput").value;
+const btn = document.getElementById("addBtn");
+const todoList = document.getElementById("todoList");
 
 btn.addEventListener("click", function(){
     const num1 = Number(input1.value);
