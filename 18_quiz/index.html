@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>기능 20 - 스크롤 등장</title>
+  <style>
+    #topBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      padding: 10px 15px;
+      font-size: 16px;
+      background-color: royalblue;
+      color: white;
+      border: none;
+      display: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    body {
+      height: 2000px; /* 스크롤 테스트용 */
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📜 스크롤을 내려보세요!</h2>
+  <button id="topBtn">▲ 위로</button>
+
+  <script>
+    const topBtn = document.getElementById("topBtn");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    });
+
+    topBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>기능 18 - 퀴즈 앱</title>
+  <style>
+    .option-btn {
+      display: block;
+      margin: 8px 0;
+      padding: 8px;
+      width: 100%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 id="question">문제가 여기에 표시됩니다</h2>
+  <div id="options"></div>
+  <p id="result"></p>
+
+  <script>
+    const quizData = [
+      {
+        question: "HTML의 의미는?",
+        options: ["Hyper Text Markup Language", "High Tech Machine Learning", "How To Make Lunch"],
+        answer: 0
+      },
+      {
+        question: "JavaScript는 어디에서 실행될 수 있나요?",
+        options: ["브라우저", "토스터기", "냉장고"],
+        answer: 0
+      },
+      {
+        question: "CSS는 무엇을 제어하나요?",
+        options: ["디자인", "데이터베이스", "서버"],
+        answer: 0
+      }
+    ];
+
+    let currentIndex = 0;
+    let score = 0;
+
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const resultEl = document.getElementById("result");
+
+    function loadQuestion() {
+      const current = quizData[currentIndex];
+      questionEl.textContent = current.question;
+      optionsEl.innerHTML = "";
+
+      current.options.forEach((opt, idx) => {
+        const btn = document.createElement("button");
+        btn.textContent = opt;
+        btn.className = "option-btn";
+        btn.addEventListener("click", () => checkAnswer(idx));
+        optionsEl.appendChild(btn);
+      });
+    }
+
+    function checkAnswer(selectedIdx) {
+      const current = quizData[currentIndex];
+      if (selectedIdx === current.answer) {
+        score++;
+      }
+
+      currentIndex++;
+      if (currentIndex < quizData.length) {
+        loadQuestion();
+      } else {
+        questionEl.textContent = "퀴즈 완료!";
+        optionsEl.innerHTML = "";
+        resultEl.textContent = `당신의 점수: ${score} / ${quizData.length}`;
+      }
+    }
+
+    loadQuestion(); // 첫 문제 로딩
+  </script>
+
+</body>
+</html>
