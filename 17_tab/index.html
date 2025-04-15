@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>기능 17 - 탭 메뉴</title>
+  <style>
+    .tabs button {
+      padding: 10px 20px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+
+    .tabs .active {
+      background-color: royalblue;
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>🗂️ 탭 메뉴 예제</h3>
+
+  <div class="tabs">
+    <button data-tab="tab1" class="active">소개</button>
+    <button data-tab="tab2">기능</button>
+    <button data-tab="tab3">문의</button>
+  </div>
+
+  <div class="tab-contents">
+    <div id="tab1" class="tab-content active">이곳은 소개 탭입니다.</div>
+    <div id="tab2" class="tab-content">이곳은 기능 설명 탭입니다.</div>
+    <div id="tab3" class="tab-content">이곳은 문의사항 탭입니다.</div>
+  </div>
+
+  <script>
+    const tabButtons = document.querySelectorAll(".tabs button");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.getAttribute("data-tab");
+
+        // 버튼 active 상태 초기화
+        tabButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        // 콘텐츠 active 상태 초기화
+        tabContents.forEach((content) => {
+          content.classList.remove("active");
+          if (content.id === targetId) {
+            content.classList.add("active");
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
